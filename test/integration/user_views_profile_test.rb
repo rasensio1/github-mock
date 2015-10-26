@@ -8,6 +8,7 @@ include Capybara::DSL
     click_link "Profile"
 
     assert_equal profile_path, current_path
+    assert page.has_content?("Profile")
   end
 
 end

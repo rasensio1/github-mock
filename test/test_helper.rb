@@ -24,8 +24,8 @@ class ActiveSupport::TestCase
       extra: {
         raw_info: {
           user_id: "1234",
-          name: "Horace",
-          screen_name: "worace",
+          name: "Ryan A",
+          screen_name: "rasensio1",
         }
       },
       credentials: { token: "pizza" }

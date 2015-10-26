@@ -19,10 +19,8 @@ include Capybara::DSL
 
 
   def stub_omniauth
-    # first, set OmniAuth to run in test mode
     OmniAuth.config.test_mode = true
-    # then, provide a set of fake oauth data that
-    # omniauth will use when a user tries to authenticate:
+
     OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
       provider: 'twitter',
       extra: {

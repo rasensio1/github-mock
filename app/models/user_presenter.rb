@@ -39,4 +39,12 @@ class UserPresenter
     return orgs || []
   end
 
+  def my_events
+    Event.my_events(user)
+  end
+
+  def received_events
+    Event.received(user)
+  end
+
 end

@@ -19,6 +19,10 @@ class UserPresenter
     data["extra"]["raw_info"]
   end
 
+  def avatar
+    raw_info["avatar_url"]
+  end
+
   def starred
     result = Github.new.activity.starring.starred user: "#{user.screen_name}" 
     list = result.map do |repo|

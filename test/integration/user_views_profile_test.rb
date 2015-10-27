@@ -21,6 +21,7 @@ include Capybara::DSL
 
     assert page.has_content?("3")
     assert page.has_content?("6")
+    assert page.has_content?("ohyeah.jpg")
   end
 
 end

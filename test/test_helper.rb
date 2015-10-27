@@ -28,6 +28,7 @@ class ActiveSupport::TestCase
           screen_name: "rasensio1",
           followers: "3",
           following: "6",
+          avatar_url: "https://github.com/images/error/ohyeah.jpg",
         }
       },
       credentials: { token: "pizza" }

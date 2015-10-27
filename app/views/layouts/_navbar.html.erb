@@ -14,12 +14,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li> <a class="page-scroll" href="#about">About</a> </li>
+                <li id ="inline"> <a class="" href="#about">About</a> </li>
                 <% if !current_user %>
-r                 <li class-"inline"> <%= link_to "Log In", login_path, class: "page-scroll" %></li>
+r                 <li id="inline"> <%= link_to "Log In", login_path %></li>
                 <% else %>
-                  <li class="inline"> <%= link_to "Log Out", logout_path, class: "page-scroll" %></li>
-                  <li class="inline"> <%= link_to "Profile", profile_path, class: "page-scroll inline" %></li>
+                  <li> <%= link_to "Log Out", logout_path, class: "" %></li>
+                  <li> <%= link_to "Profile", profile_path, class: "" %></li>
                 <% end %>
             </ul>
         </div>

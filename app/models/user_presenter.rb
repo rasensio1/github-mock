@@ -18,6 +18,7 @@ class UserPresenter
   end
 
   def starred
-    response = open('https://api.github.com/users/rasensio1/starred')
+    github = Github.new
+    github.activity.starring.starred user: 'user-name'
   end
 end

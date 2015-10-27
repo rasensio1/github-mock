@@ -12,11 +12,14 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'omniauth-github'
 gem 'figaro'
+gem "github_api"
 
 
 group :development, :test do
   gem 'byebug'
   gem 'capybara'
+  gem 'launchy'
+  gem 'webmock'
 end
 
 group :development do

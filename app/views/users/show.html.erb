@@ -1,67 +1,170 @@
 <div id = "user-show">
-  <div class = "container">
-    <div class = "row">
-        <div class = "col-md-3">
-          <h1>PICTURE</h1>
-        </div>
-        <div class = "col-md-9">
-            <section class = "row">
-                <div class = "col-md-6 well">
-                    <h1><%= current_user.name %></h1>
-                    <h1><%= current_user.screen_name %></h1>
-                    <div class = "row">
-                        <div class = "col-sm-6">
-                            <h2>Followers: </h2>
-                        </div>
-                        <div class = "col-sm-2">
-                            <h2><%= @presenter.followers %></h2>
-                        </div>
+    <div class = "container">
+        <div class = "row">
+            <div class = "col-md-3">
+              <%= image_tag("#{@presenter.avatar}", size: "200x200") %>
+            </div>
+            <div class = "col-md-8">
+                <div class = "row">
+                    <div class = "col-md-6 text-center">
+                        <h1><%= current_user.name %></h1>
                     </div>
-                    <div class = "row">
-                        <div class = "col-sm-6">
-                            <h2>Following: </h2>
-                        </div>
-                        <div class = "col-sm-2">
-                          <h2><%= @presenter.following %></h2>
-                        </div>
+                    <div class = "col-md-6 text-center">
+                        <h1><%= current_user.screen_name %></h1>
                     </div>
                 </div>
+            </div>
+        </div><!--END ROW-->
 
-                <div class = "col-md-6 well">
-                    <div class = "row">
-                        <div class = "col-md-12">
-                            <h2>Starred Repos</h2>
-                        </div>
-                    </div>
-                    <div class = "row">
-                        <div class = "col-md-12">
-                          <h1>List of repos here</h1>
-                        </div>
+        <div class = "row">
+            <div class = "col-md-2 well">
+                <div class = "row">
+                    <div class = "col-sm-12">
+                        <h3>Followers: <%= @presenter.followers %></h3>
                     </div>
                 </div>
-                
+                <div class = "row">
+                    <div class = "col-sm-12">
+                        <h3>Following: <%= @presenter.following %></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1">
+            </div>
 
+            <div class="col-md-8 well">
+                <div class = "row">
+                    <div class = "col-md-6">
+                        <h2>Starred Repos</h2>
+                    </div>
+                    <div class = "col-md-6">
+                        <% @presenter.starred.each do |repo| %>
+                            <%= link_to repo[:name], repo[:url], class: "btn btn-default btn-sm" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div><!--Row-->
+
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+
+
+        <div class = "row">
+            <div class = "col-md-6 well">
+                <div class = "row">
+                    <div class = "col-md-12 text-center">
+                        <h2>Contribution Summary</h2>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class ="col-md-7 text-right">
+                        <h3>Rolling 365day commits:</h3>
+                    </div>
+                    <div class ="col-md-4">
+                        <h3>SomeNUm</h3>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class ="col-md-7 text-right">
+                        <h3>Longest Streak</h3>
+                    </div>
+                    <div class ="col-md-4">
+                        <h3>SomeNUm</h3>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class ="col-md-7 text-right">
+                        <h3>Current Streak</h3>
+                    </div>
+                    <div class ="col-md-4">
+                        <h3>SomeNUm</h3>
+                    </div>
+                </div>
+            </div><!--Contrib summary-->
+
+            <div class = "col-md-5 well">
+                <div class = "row">
+                    <div class = "col-md-12 text-center">
+                        <h2>Organizations</h2>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-md-12">
+                        <% @presenter.organizations.each do |org| %>
+                            <%= link_to org[:name], org[:url] %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div><!--Row-->
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class = "row dark">
+        <div class="container">
+            <div class = "col-md-12">
+                <div class = "row">
+                    <div class = "col-md-12 text-center">
+                        <h2>My Activity</h2>
+                    </div>
+                </div>
+                <div class="small-spacer"></div>
+                <div class = "row">
+                    <div class = "col-md-12 text-center">
+                        <table class="table">
+                            <tr>
+                                <th class="text-center"><h4>Action</h4></th>
+                                <th class="text-center"><h4>Repository</h4></th>
+                                <th class="text-center"><h4>Time</h4></th>
+                            </tr>
+                            <% @presenter.my_events.each do |event| %>
+                                <tr>
+                                    <td><%=event.type %></td>
+                                    <td><%= link_to event.repo_name, event.repo_url %></td>
+                                    <td><%= time_ago_in_words(event.created_at) + " ago" %></td>
+                                </tr>
+                            <% end %>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div><!--Col-->
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class = "row dark">
+        <div class="container">
+            <div class = "col-md-12">
+                <div class = "row">
+                    <div class = "col-md-12 text-center">
+                        <h2>Following Activity</h2>
+                    </div>
+                </div>
+                <div class="small-spacer"></div>
+                <div class = "row">
+                    <div class = "col-md-12 text-center">
+                        <table class="table">
+                            <tr>
+                                <th class="text-center"><h4>Action</h4></th>
+                                <th class="text-center"><h4>User</h4></th>
+                                <th class="text-center"><h4>Repository</h4></th>
+                                <th class="text-center"><h4>Time</h4></th>
+                            </tr>
+                            <% @presenter.received_events.each do |event| %>
+                                <tr>
+                                    <td><%= event.type %></td>
+                                    <td><%= event.user %></td>
+                                    <td><%= link_to event.repo_name, event.repo_url %></td>
+                                    <td><%= time_ago_in_words(event.created_at) + " ago" %></td>
+                                </tr>
+                            <% end %>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-      <!--END ROW-->
     </div>
-
-    <div class = "row">
-        <div class = "col-md-offset-2 col-md-5 well">
-            <h2>Contribution Summary</h2>
-        </div>
-        <div class = "col-md-5 well">
-            <h2>Organizations</h2>
-        </div>
-    </div>
-
-    <div class = "row">
-        <div class = "col-md-offset-2 col-md-5">
-            <h2>Recent Activity</h2>
-        </div>
-        <div class = "col-md-5">
-            <h2>Following Activity</h2>
-        </div>
-    </div>
-  </div>
 </div>

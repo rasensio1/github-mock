@@ -1,6 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
+require 'webmock/minitest'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -26,6 +27,9 @@ class ActiveSupport::TestCase
           user_id: "1234",
           name: "Ryan A",
           screen_name: "rasensio1",
+          followers: "3",
+          following: "6",
+          avatar_url: "https://github.com/images/error/ohyeah.jpg",
         }
       },
       credentials: { token: "pizza" }

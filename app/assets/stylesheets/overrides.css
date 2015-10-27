@@ -1,4 +1,4 @@
-#inline {
+.inline {
   display: inline;
 }
 
@@ -15,4 +15,21 @@
 
 .well {
   background-color: rgba(200, 200, 200, 0.3);
+  border-style: none;
+  padding: 10px;
+  margin: 5px;
+}
+
+.spacer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.small-spacer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.dark {
+  background-color: rgba(0, 0, 0, 0.5);
 }

@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.from_omniauth(omni_data)
       session[:user_id] = user.id
-      session[:data] = LoginData.new(omni_data)
+      session[:git_data] = omni_data
     end
     redirect_to root_path
   end

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   helper_method :followers, :following
   def show
-   @data = LoginData.new(session[:git_data])
+   @presenter = UserPresenter.new(session[:git_data], current_user)
   end
 
   def followers

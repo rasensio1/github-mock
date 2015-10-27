@@ -14,7 +14,7 @@
                             <h2>Followers: </h2>
                         </div>
                         <div class = "col-sm-2">
-                            <h2><%= @data.followers %></h2>
+                            <h2><%= @presenter.followers %></h2>
                         </div>
                     </div>
                     <div class = "row">
@@ -22,13 +22,27 @@
                             <h2>Following: </h2>
                         </div>
                         <div class = "col-sm-2">
-                          <h2><%= @data.following %></h2>
+                          <h2><%= @presenter.following %></h2>
                         </div>
                     </div>
                 </div>
+
                 <div class = "col-md-6 well">
-                    <h2>Starred Repos</h2>
+                    <div class = "row">
+                        <div class = "col-md-12">
+                            <h2>Starred Repos</h2>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-md-12">
+                            <% #@presenter.starred.each do |name, url| %>
+                                <%= #link_to name, url %>
+                            <% #end %>
+                        </div>
+                    </div>
                 </div>
+                
+
             </div>
         </div>
       <!--END ROW-->

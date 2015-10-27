@@ -1,6 +1,7 @@
-class LoginData
+require  'open-uri'
+class UserPresenter 
   attr_accessor :data
-  def initialize(data)
+  def initialize(data, user)
     @data = data
   end
 
@@ -14,5 +15,9 @@ class LoginData
 
   def raw_info
     data["extra"]["raw_info"]
+  end
+
+  def starred
+    response = open('https://api.github.com/users/rasensio1/starred')
   end
 end

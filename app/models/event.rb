@@ -41,6 +41,7 @@ class Event
      "PullRequestEvent" => lambda {"Pull Request"},
      "PushEvent" => lambda {"Push"}
     }
+    types.default = data.type
 
     types[data.type].call
   end

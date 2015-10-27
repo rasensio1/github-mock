@@ -13,6 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'omniauth-github'
 gem 'figaro'
 gem "github_api"
+gem 'nokogiri'
 
 
 group :development, :test do

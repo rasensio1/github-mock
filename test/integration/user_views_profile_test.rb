@@ -24,4 +24,9 @@ include Capybara::DSL
     assert page.has_content?("ohyeah.jpg")
   end
 
+  test "list organizations" do
+    log_in
+    visit "/profile"
+  end
+
 end

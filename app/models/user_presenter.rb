@@ -1,10 +1,20 @@
 require  'open-uri'
 class UserPresenter 
-  attr_accessor :data, :user
+  attr_accessor :data, :user, :stats
 
   def initialize(data, user)
     @data = data
     @user = user
+    @stats ||= scrape_dat
+  end
+
+  def scrape_dat
+    doc = Nokogiri::HTML(open("https://github.com/#{user.screen_name}"))
+    nums = doc.css('span.contrib-number').children.map { |num| num.text }
+
+    { year_commits: nums.first, 
+      longest_streak: nums.second, 
+      current_strea: nums.third }
   end
 
   def followers
@@ -22,6 +32,7 @@ class UserPresenter
   def avatar
     raw_info["avatar_url"]
   end
+
 
   def starred
     result = Github.new.activity.starring.starred user: "#{user.screen_name}" 

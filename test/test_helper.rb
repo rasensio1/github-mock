@@ -26,6 +26,8 @@ class ActiveSupport::TestCase
           user_id: "1234",
           name: "Ryan A",
           screen_name: "rasensio1",
+          followers: "3",
+          following: "6",
         }
       },
       credentials: { token: "pizza" }

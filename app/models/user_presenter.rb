@@ -1,6 +1,7 @@
 require  'open-uri'
 class UserPresenter 
   attr_accessor :data, :user
+
   def initialize(data, user)
     @data = data
     @user = user
@@ -20,10 +21,10 @@ class UserPresenter
 
   def starred
     result = Github.new.activity.starring.starred user: "#{user.screen_name}" 
-    starred = result.map do |repo|
+    list = result.map do |repo|
       {name: repo.name, url: repo.html_url}
     end
-    return starred || []
+    return list || []
   end
 
   def contribution_summary
@@ -31,7 +32,11 @@ class UserPresenter
   end
 
   def organizations
-    github.orgs.list user: "#{user.screen_name}"
+    result = Github.new.orgs.list user: "#{user.screen_name}"
+    orgs = result.map do |org|
+      {name: org.login, url: org["repos_url"]}
+    end
+    return orgs || []
   end
 
 end

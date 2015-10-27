@@ -92,7 +92,18 @@
             </div><!--Contrib summary-->
 
             <div class = "col-md-5 well">
-                <h2>Organizations</h2>
+                <div class = "row">
+                    <div class = "col-md-12 text-center">
+                        <h2>Organizations</h2>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-md-12">
+                        <% @presenter.organizations.each do |org| %>
+                            <%= link_to org[:name], org[:url] %>
+                        <% end %>
+                    </div>
+                </div>
             </div>
         </div><!--Row-->
 

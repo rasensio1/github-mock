@@ -17,23 +17,19 @@
         </div><!--END ROW-->
 
         <div class = "row">
-            <div class = "col-md-3 well">
+            <div class = "col-md-2 well">
                 <div class = "row">
-                    <div class = "col-sm-6">
-                        <h3>Followers: </h3>
-                    </div>
-                    <div class = "col-sm-4">
-                        <h3><%= @presenter.followers %></h3>
+                    <div class = "col-sm-12">
+                        <h3>Followers: <%= @presenter.followers %></h3>
                     </div>
                 </div>
                 <div class = "row">
-                    <div class = "col-sm-6">
-                        <h3>Following: </h3>
-                    </div>
-                    <div class = "col-sm-4">
-                        <h3><%= @presenter.following %></h3>
+                    <div class = "col-sm-12">
+                        <h3>Following: <%= @presenter.following %></h3>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-1">
             </div>
 
             <div class="col-md-8 well">
@@ -42,11 +38,9 @@
                         <h2>Starred Repos</h2>
                     </div>
                     <div class = "col-md-6">
-                      <% if false %>
                         <% @presenter.starred.each do |repo| %>
-                            <%= link_to repo[:name], repo[:url] %>
+                            <%= link_to repo[:name], repo[:url], class: "btn btn-default btn-sm" %>
                         <% end %>
-                      <%end %>
                     </div>
                 </div>
             </div>
@@ -97,59 +91,74 @@
                 </div>
                 <div class = "row">
                     <div class = "col-md-12">
-                      <% if false %>
                         <% @presenter.organizations.each do |org| %>
                             <%= link_to org[:name], org[:url] %>
                         <% end %>
-                      <% end %>
                     </div>
                 </div>
             </div>
         </div><!--Row-->
+    </div>
 
-        <div class = "row">
-            <div class = "col-md-offset-2 col-md-5">
+    <div class="spacer"></div>
+
+    <div class = "row dark">
+        <div class="container">
+            <div class = "col-md-12">
                 <div class = "row">
                     <div class = "col-md-12 text-center">
                         <h2>Recent Activity</h2>
                     </div>
                 </div>
+                <div class="small-spacer"></div>
                 <div class = "row">
                     <div class = "col-md-12 text-center">
-                        <table>
+                        <table class="table">
                             <tr>
                                 <th class="text-center"><h4>Action</h4></th>
-                                <th class="text-center"><h4>Repo</h4></th>
+                                <th class="text-center"><h4>Repository</h4></th>
+                                <th class="text-center"><h4>Time</h4></th>
                             </tr>
-                            <% if false %>
                             <% @presenter.my_events.each do |event| %>
                                 <tr>
-                                    <td><%=event[:type]%></td>
-                                    <td><%= link_to event[:repo_name], event[:url] %></td>
+                                    <td><%=event.type %></td>
+                                    <td><%= link_to event.repo_name, event.repo_url %></td>
+                                    <td><%= time_ago_in_words(event.created_at) + " ago" %></td>
                                 </tr>
-                            <% end %>
                             <% end %>
                         </table>
                     </div>
                 </div>
-            </div><!--Col-->
-            <div class = "col-md-5">
+            </div>
+        </div><!--Col-->
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class = "row dark">
+        <div class="container">
+            <div class = "col-md-12">
                 <div class = "row">
                     <div class = "col-md-12 text-center">
                         <h2>Following Activity</h2>
                     </div>
                 </div>
+                <div class="small-spacer"></div>
                 <div class = "row">
                     <div class = "col-md-12 text-center">
-                        <table>
+                        <table class="table">
                             <tr>
                                 <th class="text-center"><h4>Action</h4></th>
-                                <th class="text-center"><h4>Repo</h4></th>
+                                <th class="text-center"><h4>User</h4></th>
+                                <th class="text-center"><h4>Repository</h4></th>
+                                <th class="text-center"><h4>Time</h4></th>
                             </tr>
                             <% @presenter.received_events.each do |event| %>
                                 <tr>
-                                    <td><%=event[:type]%></td>
-                                    <td><%= link_to event[:repo_name], event[:url] %></td>
+                                    <td><%= event.type %></td>
+                                    <td><%= event.user %></td>
+                                    <td><%= link_to event.repo_name, event.repo_url %></td>
+                                    <td><%= time_ago_in_words(event.created_at) + " ago" %></td>
                                 </tr>
                             <% end %>
                         </table>

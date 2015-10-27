@@ -3,10 +3,8 @@ class Event
     result = Github.new.activity.events.performed "#{user.screen_name}"
     sorted = result.sort_by { |event| event.created_at }.first(10).reverse
 
-    events = sorted.map do |event|
-      {type: event.type , 
-       url: "https://github.com/#{event.repo.name}", 
-       repo_name: event.repo.name }
+    events = sorted.map do |event_data|
+      Event.new(event_data)
     end
   end
 
@@ -14,10 +12,36 @@ class Event
     result = Github.new.activity.events.received "#{user.screen_name}"
     sorted = result.sort_by { |event| event.created_at }.first(10).reverse
 
-    events = sorted.map do |event|
-      {type: event.type,
-       url: "https://github.com/#{event.repo.name}",
-       repo_name: event.repo.name }
+    events = sorted.map do |event_data|
+      Event.new(event_data)
     end
+  end
+
+  attr_reader :data, :repo_url, :repo_name, :created_at, :user
+
+  def initialize(data)
+    @data       = data
+    @repo_url   = "ttps://github.com/#{data.repo.name}"
+    @repo_name  = data.repo.name
+    @created_at = data.created_at
+    @user = find_user
+  end
+
+  def find_user
+   # user_paths = {"CreateEvent" => lambda {data.actor.login},
+   #  "PullRequestEvent" => lambda {data.actor.login},
+   #  "PushEvent" => lambda {data.actor.login}
+   # }
+   # user_paths[data.type].call
+     data.actor.login 
+  end
+
+  def type
+    types = {"CreateEvent" => lambda {"Create " + data.payload.ref_type.humanize},
+     "PullRequestEvent" => lambda {"Pull Request"},
+     "PushEvent" => lambda {"Push"}
+    }
+
+    types[data.type].call
   end
 end

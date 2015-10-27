@@ -24,3 +24,12 @@
   padding-top: 30px;
   padding-bottom: 30px;
 }
+
+.small-spacer {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.dark {
+  background-color: rgba(0, 0, 0, 0.5);
+}

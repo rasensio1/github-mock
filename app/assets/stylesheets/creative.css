@@ -178,7 +178,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    background-image: url(https://s3-us-west-2.amazonaws.com/idea-box-rasensio/header.jpg);
+    background-image: url(https://s3-us-west-2.amazonaws.com/idea-box-rasensio/header.jpg) no-repeat center center fixed;
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;

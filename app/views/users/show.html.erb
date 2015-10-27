@@ -17,7 +17,7 @@
         </div><!--END ROW-->
 
         <div class = "row">
-            <div class = "col-md-2 well">
+            <div class = "col-md-2">
                 <div class = "row">
                     <div class = "col-sm-12">
                         <h3>Followers: <%= @presenter.followers %></h3>
@@ -35,7 +35,7 @@
             <div class="col-md-8 well">
                 <div class = "row">
                     <div class = "col-md-6">
-                        <h2>Starred Repos</h2>
+                        <h2>Starred Repositories</h2>
                     </div>
                     <div class = "col-md-6">
                         <% @presenter.starred.each do |repo| %>
@@ -62,23 +62,23 @@
                         <h3>Rolling 365day commits:</h3>
                     </div>
                     <div class ="col-md-4">
-                        <h3>SomeNUm</h3>
+                        <h3><%= @presenter.stats[:year_commits] %></h3>
                     </div>
                 </div>
                 <div class = "row">
                     <div class ="col-md-7 text-right">
-                        <h3>Longest Streak</h3>
+                        <h3>Longest Streak:</h3>
                     </div>
                     <div class ="col-md-4">
-                        <h3>SomeNUm</h3>
+                        <h3><%= @presenter.stats[:longest_streak] %></h3>
                     </div>
                 </div>
                 <div class = "row">
                     <div class ="col-md-7 text-right">
-                        <h3>Current Streak</h3>
+                        <h3>Current Streak:</h3>
                     </div>
                     <div class ="col-md-4">
-                        <h3>SomeNUm</h3>
+                        <h3><%= @presenter.stats[:current_streak] %></h3>
                     </div>
                 </div>
             </div><!--Contrib summary-->

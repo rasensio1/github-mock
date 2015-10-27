@@ -37,11 +37,12 @@ class Event
   end
 
   def type
+    #add Delete, Issues
     types = {"CreateEvent" => lambda {"Create " + data.payload.ref_type.humanize},
      "PullRequestEvent" => lambda {"Pull Request"},
      "PushEvent" => lambda {"Push"}
     }
-    types.default = data.type
+    types.default = lambda {data.type}
 
     types[data.type].call
   end

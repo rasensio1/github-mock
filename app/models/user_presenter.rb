@@ -24,7 +24,6 @@ class UserPresenter
     starred = result.map do |repo|
       {name: repo.name, url: repo.html_url}
     end
-
     return starred || []
   end
 end

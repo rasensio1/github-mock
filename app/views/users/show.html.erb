@@ -1,3 +1,67 @@
-<div class = "container">
-  <h1>User show </h1>
+<div id = "user-show">
+  <div class = "container">
+    <div class = "row">
+        <div class = "col-md-3">
+          <h1>PICTURE</h1>
+        </div>
+        <div class = "col-md-9">
+            <section class = "row">
+                <div class = "col-md-6 well">
+                    <h1><%= current_user.name %></h1>
+                    <h1><%= current_user.screen_name %></h1>
+                    <div class = "row">
+                        <div class = "col-sm-6">
+                            <h2>Followers: </h2>
+                        </div>
+                        <div class = "col-sm-2">
+                            <h2><%= @presenter.followers %></h2>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-sm-6">
+                            <h2>Following: </h2>
+                        </div>
+                        <div class = "col-sm-2">
+                          <h2><%= @presenter.following %></h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "col-md-6 well">
+                    <div class = "row">
+                        <div class = "col-md-12">
+                            <h2>Starred Repos</h2>
+                        </div>
+                    </div>
+                    <div class = "row">
+                        <div class = "col-md-12">
+                          <h1>List of repos here</h1>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+        </div>
+      <!--END ROW-->
+    </div>
+
+    <div class = "row">
+        <div class = "col-md-offset-2 col-md-5 well">
+            <h2>Contribution Summary</h2>
+        </div>
+        <div class = "col-md-5 well">
+            <h2>Organizations</h2>
+        </div>
+    </div>
+
+    <div class = "row">
+        <div class = "col-md-offset-2 col-md-5">
+            <h2>Recent Activity</h2>
+        </div>
+        <div class = "col-md-5">
+            <h2>Following Activity</h2>
+        </div>
+    </div>
+  </div>
 </div>

@@ -14,7 +14,7 @@ class UserPresenter
 
     { year_commits: nums.first, 
       longest_streak: nums.second, 
-      current_strea: nums.third }
+      current_streak: nums.third }
   end
 
   def followers

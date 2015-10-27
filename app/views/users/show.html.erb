@@ -62,23 +62,23 @@
                         <h3>Rolling 365day commits:</h3>
                     </div>
                     <div class ="col-md-4">
-                        <h3>SomeNUm</h3>
+                        <h3><%= @presenter.stats[:year_commits] %></h3>
                     </div>
                 </div>
                 <div class = "row">
                     <div class ="col-md-7 text-right">
-                        <h3>Longest Streak</h3>
+                        <h3>Longest Streak:</h3>
                     </div>
                     <div class ="col-md-4">
-                        <h3>SomeNUm</h3>
+                        <h3><%= @presenter.stats[:longest_streak] %></h3>
                     </div>
                 </div>
                 <div class = "row">
                     <div class ="col-md-7 text-right">
-                        <h3>Current Streak</h3>
+                        <h3>Current Streak:</h3>
                     </div>
                     <div class ="col-md-4">
-                        <h3>SomeNUm</h3>
+                        <h3><%= @presenter.stats[:current_streak] %></h3>
                     </div>
                 </div>
             </div><!--Contrib summary-->

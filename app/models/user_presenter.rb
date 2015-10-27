@@ -1,8 +1,9 @@
 require  'open-uri'
 class UserPresenter 
-  attr_accessor :data
+  attr_accessor :data, :user
   def initialize(data, user)
     @data = data
+    @user = user
   end
 
   def followers
@@ -19,6 +20,11 @@ class UserPresenter
 
   def starred
     github = Github.new
-    github.activity.starring.starred user: 'user-name'
+    result = github.activity.starring.starred user: "#{user.screen_name}" 
+    starred = result.map do |repo|
+      {name: repo.name, url: repo.html_url}
+    end
+
+    return starred || []
   end
 end

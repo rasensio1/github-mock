@@ -35,7 +35,9 @@
                     </div>
                     <div class = "row">
                         <div class = "col-md-12">
-                          <h1>List of repos here</h1>
+                          <% @presenter.starred.each do |repo| %>
+                            <%= link_to repo[:name], repo[:url] %>
+                          <% end %>
                         </div>
                     </div>
                 </div>

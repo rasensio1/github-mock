@@ -19,7 +19,7 @@ class UserPresenter
   end
 
   def starred
-    result = Githubn.new.activity.starring.starred user: "#{user.screen_name}" 
+    result = Github.new.activity.starring.starred user: "#{user.screen_name}" 
     starred = result.map do |repo|
       {name: repo.name, url: repo.html_url}
     end
@@ -27,9 +27,11 @@ class UserPresenter
   end
 
   def contribution_summary
+    github.repos.stats.code_frequency
   end
 
   def organizations
+    github.orgs.list user: "#{user.screen_name}"
   end
 
 end

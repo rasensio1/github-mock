@@ -27,5 +27,4 @@ class EventTest < ActiveSupport::TestCase
       assert_equal "Push", event.type
     end
   end
-
 end

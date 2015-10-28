@@ -29,6 +29,13 @@ include Capybara::DSL
       assert page.has_content?("Contribution Summary")
       assert page.has_content?("My Activity")
       assert page.has_content?("Following Activity")
+
+      #Queried Data
+      assert page.has_content?("1,012")
+      assert page.has_content?("2 days")
+      assert page.has_content?("lesson_plans")
+      assert page.has_content?("Create Repository")
+      assert page.has_content?("roseak")
     end
   end
 

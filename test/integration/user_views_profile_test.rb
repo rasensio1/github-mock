@@ -17,7 +17,6 @@ include Capybara::DSL
     end
   end
 
-
   test "viewing stored data" do
     VCR.use_cassette("profile data") do
       log_in

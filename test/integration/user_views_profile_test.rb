@@ -47,5 +47,4 @@ include Capybara::DSL
       assert page.has_content?("fordo_site")
     end
   end
-
 end

@@ -28,4 +28,5 @@ fixtures :all
       assert_equal "Push", event.type
     end
   end
+
 end

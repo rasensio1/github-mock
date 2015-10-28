@@ -17,7 +17,7 @@ class Event
     end
   end
 
-  attr_reader :data, :repo_url, :repo_name, :created_at, :user
+  attr_reader :data, :repo_url, :repo_name, :created_at, :user, :type
 
   def initialize(data)
     @data       = data
@@ -25,20 +25,21 @@ class Event
     @repo_name  = data.repo.name
     @created_at = data.created_at
     @user = find_user
+    @type = get_type(data)
   end
 
   def find_user
     data.actor.login
   end
 
-  def type
-    types = {"CreateEvent" => lambda {"Create " + data.payload.ref_type.humanize},
+  def get_type(info)
+    types = {"CreateEvent" => lambda {"Create " + info.payload.ref_type.humanize},
      "PullRequestEvent" => lambda {"Pull Request"},
      "PushEvent" => lambda {"Push"},
-     "DeleteEvent" => lambda {"Delete" + data.payload.ref_type.humanize},
-     "IssuesEvent" => lambda {"Event" + data.payload.action.humanize}
+     "DeleteEvent" => lambda {"Delete" + info.payload.ref_type.humanize},
+     "IssuesEvent" => lambda {"Event" + info.payload.action.humanize}
     }
-    types.default = lambda { data.type }
-    types[data.type].call
+    types.default = lambda { info.type }
+    types[info.type].call
   end
 end

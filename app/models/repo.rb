@@ -4,7 +4,6 @@ class Repo
     Github.new
   end
 
-
   def self.mine(user)
     data = github.repos.list user: "#{user.screen_name}"
     get_params(data) || []
@@ -21,5 +20,4 @@ class Repo
         {name: repo.name, url: repo.html_url}
       end
     end
-
 end

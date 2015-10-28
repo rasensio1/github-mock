@@ -28,12 +28,7 @@ class Event
   end
 
   def find_user
-   # user_paths = {"CreateEvent" => lambda {data.actor.login},
-   #  "PullRequestEvent" => lambda {data.actor.login},
-   #  "PushEvent" => lambda {data.actor.login}
-   # }
-   # user_paths[data.type].call
-     data.actor.login 
+     data.actor.login
   end
 
   def type

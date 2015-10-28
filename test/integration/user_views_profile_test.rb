@@ -17,6 +17,7 @@ include Capybara::DSL
     end
   end
 
+
   test "viewing stored data" do
     VCR.use_cassette("profile data") do
       log_in
@@ -29,8 +30,14 @@ include Capybara::DSL
       assert page.has_content?("Contribution Summary")
       assert page.has_content?("My Activity")
       assert page.has_content?("Following Activity")
+    end
+  end
 
-      #Queried Data
+  test "viewing queried data" do
+    VCR.use_cassette("profile data") do
+      log_in
+      visit "/profile"
+
       assert page.has_content?("1,012")
       assert page.has_content?("2 days")
       assert page.has_content?("lesson_plans")

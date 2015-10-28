@@ -16,7 +16,7 @@ class Repo
   private
     def self.get_params(data)
       data.map do |repo|
-        {name: repo.name, url: repo.html_url}
+        { name: repo.name, url: repo.html_url }
       end
     end
 end

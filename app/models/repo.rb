@@ -9,7 +9,7 @@ class Repo
   end
 
   def self.starred(user)
-    data = github.activity.starring.starred user: "#{user.screen_name}" 
+    data = github.activity.starring.starred user: "#{user.screen_name}"
     get_params(data) || []
   end
 

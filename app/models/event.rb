@@ -28,7 +28,7 @@ class Event
   end
 
   def find_user
-     data.actor.login
+    data.actor.login
   end
 
   def type

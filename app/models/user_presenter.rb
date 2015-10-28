@@ -5,10 +5,14 @@ class UserPresenter
   def initialize(data, user)
     @data = data
     @user = user
-    @stats ||= scrape_dat
+    @stats ||= scrape_stats
   end
 
-  def scrape_dat
+  def repos
+    Repo.mine(user)
+  end
+
+  def scrape_stats
     doc = Nokogiri::HTML(open("https://github.com/#{user.screen_name}"))
     nums = doc.css('span.contrib-number').children.map { |num| num.text }
 
@@ -35,11 +39,7 @@ class UserPresenter
 
 
   def starred
-    result = Github.new.activity.starring.starred user: "#{user.screen_name}" 
-    list = result.map do |repo|
-      {name: repo.name, url: repo.html_url}
-    end
-    return list || []
+    Repo.starred(user)
   end
 
   def contribution_summary

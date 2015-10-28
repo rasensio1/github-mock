@@ -5,7 +5,6 @@ require 'webmock'
 require 'vcr'
 
 class ActiveSupport::TestCase
-  fixtures :all
 
   VCR.configure  do |c|
     c.cassette_library_dir = 'test/cassettes'

@@ -45,7 +45,7 @@ include Capybara::DSL
       assert page.has_content?("roseak")
       assert page.has_content?("github-mock")
       assert page.has_content?("black-jacky")
-      assert page.has_content?("fordo-site")
+      assert page.has_content?("fordo_site")
     end
   end
 

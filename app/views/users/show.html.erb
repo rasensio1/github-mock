@@ -67,13 +67,15 @@
                 </div><!--Contrib summary-->
             </div><!--Row-->
         </div><!--END ROW-->
+        <div class="spacer"></div>
         <div class = "row">
             <div class = "col-md-12 well">
                 <div class = "row">
-                    <div class = "col-md-3">
+                    <div class = "col-md-12 text-center">
                       <h2>Repositories</h2>
+                      <div class="small-spacer"></div>
                     </div>
-                    <div class = "col-md-8 text-center">
+                    <div class = "col-md-12 text-center">
                         <% @presenter.repos.each do |repo| %>
                             <%= link_to repo[:name], repo[:url], class: "btn btn-default btn-sm" %>
                         <% end %>
@@ -85,43 +87,38 @@
 
         <div class="small-spacer"></div>
         <div class = "row">
-            <div class = "col-md-8">
+            <div class = "col-md-5 well">
                 <div class = "row">
-                    <div class = "col-md-12 well">
-                        <div class = "row">
-                            <div class = "col-md-12">
-                                <h2>Organizations</h2>
-                            </div>
-                        </div>
-                        <div class = "row">
-                            <div class = "col-md-12">
-                                <% @presenter.organizations.each do |org| %>
-                                    <%= link_to org[:name], org[:url] %>
-                                <% end %>
-                            </div>
-                        </div>
+                    <div class = "col-md-12 text-center">
+                        <h2>Organizations</h2>
+                        <div class="small-spacer"></div>
                     </div>
-                </div><!--Row-->
-
-
+                </div>
                 <div class = "row">
-                    <div class="col-md-12 well">
-                        <div class = "row">
-                            <div class = "col-md-6">
-                                <h2>Starred Repositories</h2>
-                            </div>
-                            <div class = "col-md-6">
-                                <% @presenter.starred.each do |repo| %>
-                                    <%= link_to repo[:name], repo[:url], class: "btn btn-default btn-sm" %>
-                                <% end %>
-                            </div>
-                        </div>
+                    <div class = "col-md-12 text-center">
+                        <% @presenter.organizations.each do |org| %>
+                            <%= link_to org[:name], org[:url] %>
+                        <% end %>
                     </div>
-                </div><!--row-->
-            </div><!--row-->
-        </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
 
-    </div>
+            <div class="col-md-5 well">
+                <div class = "row">
+                    <div class = "col-md-12 text-center">
+                        <h2>Starred Repositories</h2>
+                        <div class="small-spacer"></div>
+                    </div>
+                    <div class = "col-md-12 text-center">
+                        <% @presenter.starred.each do |repo| %>
+                            <%= link_to repo[:name], repo[:url], class: "btn btn-default btn-sm" %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div><!--Row-->
+
 
     <div class="spacer"></div>
 

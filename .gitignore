@@ -15,5 +15,8 @@
 # Test cassettes
 /test/cassettes
 
+#capybara open page
+capybara*
+
 # Ignore application configuration
 /config/application.yml

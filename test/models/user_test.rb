@@ -1,6 +1,19 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+
+   test "validity" do
+     user = User.new(name: "ryan", screen_name: "rasensio1")
+     assert user.valid?
+
+     user.name = nil
+     refute user.valid?
+
+     user.name = "ryan"
+     user.screen_name = nil
+     refute user.valid?
+   end
+
    test "creates a valid user" do
       mock_auth = OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
         provider: 'twitter',

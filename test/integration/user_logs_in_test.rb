@@ -4,7 +4,9 @@ class UserLogsInTest < ActionDispatch::IntegrationTest
 include Capybara::DSL
 
   test "logging in" do
+
     visit "/"
+    click_link "Log Out"
     assert_equal 200, page.status_code
     click_link "Log In"
     assert_equal "/", current_path

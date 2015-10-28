@@ -28,19 +28,16 @@ class Event
   end
 
   def find_user
-   # user_paths = {"CreateEvent" => lambda {data.actor.login},
-   #  "PullRequestEvent" => lambda {data.actor.login},
-   #  "PushEvent" => lambda {data.actor.login}
-   # }
-   # user_paths[data.type].call
-     data.actor.login 
+    data.actor.login
   end
 
   def type
+    #add Delete, Issues
     types = {"CreateEvent" => lambda {"Create " + data.payload.ref_type.humanize},
      "PullRequestEvent" => lambda {"Pull Request"},
      "PushEvent" => lambda {"Push"}
     }
+    types.default = lambda { data.type }
 
     types[data.type].call
   end

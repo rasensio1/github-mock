@@ -8,7 +8,6 @@ class User < ActiveRecord::Base
       oauth_token:        auth_info.credentials.token,
       #oauth_token_secret: auth_info.credentials.secret
     )
-
     user
  end
 end

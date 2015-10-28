@@ -1,5 +1,5 @@
 class Event
-  def self.my_events(user)
+  def self.mine(user)
     result = Github.new.activity.events.performed "#{user.screen_name}"
     sorted = result.sort_by { |event| event.created_at }.first(10).reverse
 

@@ -33,7 +33,7 @@ class UserPresenter
   end
 
   def my_events
-    Event.my_events(user)
+    Event.mine(user)
   end
 
   def received_events

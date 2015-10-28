@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-
    test "validity" do
      user = User.new(name: "ryan", screen_name: "rasensio1")
      assert user.valid?
@@ -29,7 +28,7 @@ class UserTest < ActiveSupport::TestCase
         },
         credentials: { token: "pizza" },
         info: {nickname: "rasensio1"}
-     })
+      })
 
      user = User.from_omniauth(mock_auth)
      assert user.valid? 

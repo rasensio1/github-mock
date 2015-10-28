@@ -27,7 +27,7 @@ class UserTest < ActiveSupport::TestCase
           }
         },
         credentials: { token: "pizza" },
-        info: {nickname: "rasensio1"}
+        info: { nickname: "rasensio1" }
       })
 
      user = User.from_omniauth(mock_auth)

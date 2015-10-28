@@ -21,7 +21,7 @@ class Event
 
   def initialize(data)
     @data       = data
-    @repo_url   = "ttps://github.com/#{data.repo.name}"
+    @repo_url   = "https://github.com/#{data.repo.name}"
     @repo_name  = data.repo.name
     @created_at = data.created_at
     @user = find_user

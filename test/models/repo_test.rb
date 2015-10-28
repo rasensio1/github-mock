@@ -1,9 +1,8 @@
 require "test_helper"
 
 class RepoTest < ActiveSupport::TestCase
-include Capybara::DSL
-
-fixtures :all
+  include Capybara::DSL
+  fixtures :all
 
   test "get repos for a user" do
     VCR.use_cassette("repo#mine") do

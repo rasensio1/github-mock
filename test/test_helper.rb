@@ -40,5 +40,4 @@ class ActiveSupport::TestCase
       info: {nickname: "rasensio1"}
     })
   end
-
 end

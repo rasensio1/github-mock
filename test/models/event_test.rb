@@ -1,9 +1,8 @@
 require "test_helper"
 
 class EventTest < ActiveSupport::TestCase
-include Capybara::DSL
-
-fixtures :all
+  include Capybara::DSL
+  fixtures :all
 
   test "gets events for a user" do
     VCR.use_cassette("event#mine") do

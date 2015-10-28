@@ -1,12 +1,17 @@
 class Repo
 
+  def self.github
+    Github.new
+  end
+
+
   def self.mine(user)
-    data = Github.new.repos.list user: "#{user.screen_name}"
+    data = github.repos.list user: "#{user.screen_name}"
     get_params(data) || []
   end
 
   def self.starred(user)
-    data = Github.new.activity.starring.starred user: "#{user.screen_name}" 
+    data = github.activity.starring.starred user: "#{user.screen_name}" 
     get_params(data) || []
   end
 

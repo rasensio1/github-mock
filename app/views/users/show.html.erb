@@ -73,10 +73,10 @@
                     <div class = "col-md-3">
                       <h2>Repositories</h2>
                     </div>
-                    <div class = "col-md-8">
-                      <% @presenter.repos.each do |repo| %>
-                          <%= link_to repo[:name], repo[:url], class: "btn btn-default btn-sm" %>
-                      <% end %>
+                    <div class = "col-md-8 text-center">
+                        <% @presenter.repos.each do |repo| %>
+                            <%= link_to repo[:name], repo[:url], class: "btn btn-default btn-sm" %>
+                        <% end %>
                     </div>
                 </div>
             </div>

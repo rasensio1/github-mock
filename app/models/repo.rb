@@ -1,5 +1,4 @@
 class Repo
-
   def self.github
     Github.new
   end

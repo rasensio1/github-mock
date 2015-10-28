@@ -8,19 +8,6 @@ class UserPresenter
     @stats ||= scrape_stats
   end
 
-  def repos
-    Repo.mine(user)
-  end
-
-  def scrape_stats
-    doc = Nokogiri::HTML(open("https://github.com/#{user.screen_name}"))
-    nums = doc.css('span.contrib-number').children.map { |num| num.text }
-
-    { year_commits: nums.first, 
-      longest_streak: nums.second, 
-      current_streak: nums.third }
-  end
-
   def followers
     raw_info["followers"]
   end
@@ -37,13 +24,20 @@ class UserPresenter
     raw_info["avatar_url"]
   end
 
+  def repos
+    Repo.mine(user)
+  end
 
   def starred
     Repo.starred(user)
   end
 
-  def contribution_summary
-    github.repos.stats.code_frequency
+  def my_events
+    Event.mine(user)
+  end
+
+  def received_events
+    Event.received(user)
   end
 
   def organizations
@@ -54,12 +48,13 @@ class UserPresenter
     return orgs || []
   end
 
-  def my_events
-    Event.my_events(user)
-  end
+  def scrape_stats
+    doc = Nokogiri::HTML(open("https://github.com/#{user.screen_name}"))
+    nums = doc.css('span.contrib-number').children.map { |num| num.text }
 
-  def received_events
-    Event.received(user)
+    { year_commits: nums.first, 
+      longest_streak: nums.second, 
+      current_streak: nums.third }
   end
 
 end

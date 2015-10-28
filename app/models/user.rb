@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+  validates :name, :screen_name, presence: true
+
+  
  def self.from_omniauth(auth_info)
     user = find_or_create_by(uid: auth_info[:uid])
 

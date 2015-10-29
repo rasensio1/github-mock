@@ -37,10 +37,9 @@ include Capybara::DSL
       log_in
       visit "/profile"
 
-      assert page.has_content?("1,012")
+      assert page.has_content?("1,067")
       assert page.has_content?("2 days")
       assert page.has_content?("lesson_plans")
-      assert page.has_content?("Create Repository")
       assert page.has_content?("roseak")
       assert page.has_content?("github-mock")
       assert page.has_content?("black-jacky")

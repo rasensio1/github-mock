@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       session[:git_data] = omni_data
     end
-    redirect_to root_path
+    redirect_to profile_path
   end
 
   def destroy

@@ -14,6 +14,7 @@
 
 # Test cassettes
 /test/cassettes
+coverage
 
 #capybara open page
 capybara*

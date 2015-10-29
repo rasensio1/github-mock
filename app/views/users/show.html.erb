@@ -1,18 +1,19 @@
 <div id = "user-show">
-    <div class = "container">
-        <div class = "row">
+    <div class = "row dark">
+        <div class="small-spacer"></div>
+        <div class = "container">
             <div class = "col-md-3">
                 <div class="row">
-                    <div class = "col-md-12">
-                        <%= image_tag("#{@presenter.avatar}", size: "200x200") %>
+                    <div class = "col-md-12 text-center">
+                        <%= image_tag("#{@presenter.avatar}", size: "200x200", class: 'img-circle img-shadow') %>
                     </div>
                 </div>
                 <div class="row">
                     <div class = "col-md-12">
-                        <div class = "col-sm-12">
+                        <div class="col-sm-12 text-center underline">
                           <h3>Followers: <%= " #{@presenter.followers}" %></h3>
                         </div>
-                        <div class = "col-sm-12">
+                        <div class="col-sm-12 text-center underline">
                           <h3>Following: <%= " #{@presenter.following}" %></h3>
                         </div>
                     </div>
@@ -34,7 +35,7 @@
             </div>
 
             <div class = "row">
-                <div class = "col-md-8 well">
+                <div class = "col-md-8 well shadow">
                     <div class = "row">
                         <div class = "col-md-12 text-center">
                             <h2>Contribution Summary</h2>
@@ -66,11 +67,12 @@
                     </div>
                 </div><!--Contrib summary-->
             </div><!--Row-->
-        </div><!--END ROW-->
-    </div><!--container-->
+        </div><!--container-->
+        <div class="small-spacer"></div>
+    </div><!--END ROW-->
         <div class="spacer"></div>
         <div class = "row">
-            <div class = "col-md-12 well">
+            <div class = "col-md-12 well shadow">
                 <div class = "row">
                     <div class = "col-md-12 text-center">
                       <h2>Repositories</h2>
@@ -87,7 +89,7 @@
         <div class="small-spacer"></div>
         <div class = "row">
             <div class = " col-md-1"></div>
-            <div class = " col-md-4 well">
+            <div class = " col-md-4 well shadow">
                 <div class = "row">
                     <div class = "col-md-12 text-center">
                         <h2>Organizations</h2>
@@ -102,7 +104,7 @@
             </div>
             <div class="col-md-2"></div>
 
-            <div class="col-md-4 well">
+            <div class="col-md-4 well shadow">
                 <div class = "row">
                     <div class = "col-md-12 text-center">
                         <h2>Starred Repositories</h2>
@@ -122,13 +124,13 @@
         <div class="container">
             <div class = "col-md-12">
                 <div class = "row">
-                    <div class = "col-md-12 text-center">
-                        <h2>My Activity</h2>
+                    <div id="my-events-btn" class="col-md-12 text-center">
+                      <h2><a>My Activity</a></h2>
                     </div>
                 </div>
                 <div class="small-spacer"></div>
-                <div class = "row">
-                    <div class = "col-md-12 text-center">
+                <div id="my-events" class = "row" style="display:none;">
+                    <div class="col-md-12 text-center">
                         <table class="table">
                             <tr>
                                 <th class="text-center"><h4>Action</h4></th>
@@ -155,12 +157,12 @@
         <div class="container">
             <div class = "col-md-12">
                 <div class = "row">
-                    <div class = "col-md-12 text-center">
-                        <h2>Following Activity</h2>
+                    <div id="following-btn" class="col-md-12 text-center">
+                      <h2><a>Following Activity</a></h2>
                     </div>
                 </div>
                 <div class="small-spacer"></div>
-                <div class = "row">
+                <div id="following" class="row" style="display:none;">
                     <div class = "col-md-12 text-center">
                         <table class="table">
                             <tr>

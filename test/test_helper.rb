@@ -3,6 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'webmock'
 require 'vcr'
+require 'simplecov'
 
 class ActiveSupport::TestCase
 
@@ -10,6 +11,8 @@ class ActiveSupport::TestCase
     c.cassette_library_dir = 'test/cassettes'
     c.hook_into :webmock
   end
+
+  SimpleCov.start
 
   def setup
     Capybara.app = GithubMock::Application

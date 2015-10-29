@@ -5,5 +5,5 @@ $( document ).ready(function() {
 
   $('#my-events-btn').click(function(){
     $('#my-events').slideToggle();
-  })
+  });
 });
